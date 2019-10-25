@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+        <html>
+        <title>React Reconciliation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Reconciliation: The process which needs to figure out how to efficiently update the DOM when components "props" or "state" changes.." />
+        <meta name="Keywords" content="react, reconciliation, diffing algorithm, props, state, render." />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="www.raptei.com" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="raptei.com">
+        <link rel="stylesheet" href="../content/css/raptei.css">
+        <link rel="stylesheet" href="../content/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <body>
+            <!-- mobile version -->
+            <div class="w3-hide-medium w3-hide-large">
+                <a href="raptei.com"><img src="../content/images/logo.svg" height="50px" width="350px"></a>
+                <div id="myHeader" class="raptei-navbar">
+                    <div class="w3-bar">
+                        <a class="w3-bar-item w3-padding-large w3-left" href="javascript:void(0)" id="openSideBar"
+                            onclick="toggleSideBar()">
+                            <i class="fa fa-bars fa-2x"></i>
+                        </a>
+                        <a class="w3-bar-item w3-button w3-right" href="../index.html"><i class="fa fa-home fa-2x"></i></a>
+                        <div class="w3-dropdown-hover">
+                            <button class="w3-button" style="font-size: 1.5em" onclick="toggleMenuBar()">Tutorials</button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                            <a href="./react/react-tutorial.html" title="React Tutorial" 
+        class="w3-bar-item w3-button">React</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="w3-row">
+                    <div class="w3-half">
+                        <div class="w3-container w3-center" style="height: 60px;">
+                            <p style="padding-top:10px;padding-bottom: 10px">Advertisement</p>
+                        </div>
+                        <br />
+                        <h2 class="w3-center">React Reconciliation</h2>
+                        <hr />
+                        <div class="w3-container">
+                            <article>
+                            <h2 id="what-is-reconciliation">What is Reconciliation?</h2>
+<p>Reconciliation: The process which needs to figure out how to efficiently update the DOM when components <strong>&quot;props&quot;</strong> or <strong>&quot;state&quot;</strong> changes.</p>
+<h3 id="example">Example:</h3>
+<p>A component&#39;s render() function creates a tree of react elements.</p>
+<p>When components <strong>&quot;props&quot;</strong> or <strong>&quot;state&quot;</strong> change, that render() function will return a different tree of react elements by updating UI DOM.</p>
+<h3 id="how-reconciliation">How reconciliation</h3>
+<p>Reconciliation process executes by diffing algorithm which has different set of rules.</p>
+<h2 id="what-is-diffing-algorithm">What is diffing algorithm?</h2>
+<p>Component will update the DOM by an algorithm which compares DOM elements component&#39;s according to the behavior and in difference between them.</p>
+<h3 id="what-are-different-set-of-rules-in-diffing-algorithm">What are different set of rules in diffing algorithm?</h3>
+<ol>
+<li>When DOM elements of different types</li>
+<li>When DOM element of the same type.</li>
+<li>Component element of the same type.</li>
+</ol>
+
+                            </article>
+                        </div>
+                        <hr />
+                        <div class="w3-container">
+                            <div class="w3-center" style="height: 60px;">
+                                Advertisement
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" id="mySidebar"
+                        style="z-index:1;width:100%; height: 100%;padding-bottom: 50px;display:none">
+                        <div class="w3-bar-block" style="z-index: 1">
+                            <a class="w3-bar-item bgBlack"> React Tutorial
+                               <a href="./react-reconciliation.html" title="React Reconciliation" class="w3-bar-item w3-button">React Reconciliation</a>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                <footer>
+                    <div class="w3-bar">
+                        <a class="w3-bar-item" title="Privacy Policy" href="#">Privacy Policy</a>
+                        <a class="w3-bar-item" title="Terms of Services" href="#">Terms of Services</a>
+                    </div>
+                    <div class="w3-center">
+                        <a> &copy; raptei.com</a>
+                    </div>
+                </footer>
+            </div>
+            
+            <!-- web version -->
+            <div class="w3-hide-small">
+                <a href="raptei.com"><img src="../content/images/logo.svg" height="50px" width="350px"></a>
+                <div id="myHeader">
+                    <div class="w3-bar raptei-navbar">
+                        <a class="w3-bar-item w3-button" style="margin-left:75px;" href="index.html">Home</a>
+                        <div class="w3-dropdown-hover">
+                            <button class="w3-button">Tutorials</button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a href="../public/react/react-tutorial.html" class="w3-bar-item w3-button">React</a>
+                                <a href="#" class="w3-bar-item w3-button" title="Redux Tutorial">Redux</a>
+                                <a href="#" class="w3-bar-item w3-button" title="Redux Saga Tutorial">Redux Saga</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <header class="raptei-header">
+                    <div class="w3-container banner-header w3-center">
+                        <h1>React Tutorial</h1>
+                        <a class="raptei-btn" title="Latest React Tutorial">
+                            Learn React Rapidly</a>
+                    </div>
+                </header>
+        
+                <div class="w3-row">
+                    <div class="w3-quarter">
+                        <div class="w3-bar-block">
+                            <a class="w3-bar-item bgBlack"> React Tutorial
+                            <a href="./react-reconciliation.html" title="React Reconciliation" class="w3-bar-item w3-button">React Reconciliation</a>
+                            </a>
+                        </div>
+                    </div>
+        
+                    <div class="w3-half ">
+                        <div class="w3-container">
+                        <article>
+                        undefined
+                        </article>
+                        </div>
+                    </div>
+        
+                    <div class="w3-quarter">
+                        <div class="w3-center">
+                            Advertisement
+                        </div>
+                    </div>
+                </div>
+        
+                <footer>
+                    <div class="w3-bar">
+                        <a class="w3-bar-item" title="Privacy Policy" href="#">Privacy Policy</a>
+                        <a class="w3-bar-item" title="Terms of Services" href="#">Terms of Services</a>
+                    </div>
+                    <div class="w3-center">
+                        <a> &copy; raptei.com</a>
+                    </div>
+                </footer>
+            </div>
+            <script src="../content/js/raptei.js"></script>
+        </body>
+        </html>
